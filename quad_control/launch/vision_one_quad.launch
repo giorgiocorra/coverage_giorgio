@@ -1,0 +1,12 @@
+<launch>
+	<group ns='quad'>
+		<node pkg='quad_control' name='planner' type='vision_planner_single_quad.py'/>
+		<node pkg='quad_control' name='fake_quad' type='fake_quad.py'/>
+		<!--<node pkg='rqt_plot' name='rqt_plot' type='rqt_plot' args='/quad/vision'/>-->
+	</group>
+
+
+	<node pkg='rqt_plot' name='vision_plot' type='rqt_plot' args='quad/vision'/>
+	<node pkg='rqt_plot' name='position_plot' type='rqt_plot' args='quad/pose/position/x quad/pose/position/y quad/pose/position/z'/>
+	<node pkg='rqt_plot' name='velocity_plot' type='rqt_plot' args='quad/cmd_vel/linear/x quad/cmd_vel/linear/y quad/cmd_vel/linear/z'/>
+</launch>
